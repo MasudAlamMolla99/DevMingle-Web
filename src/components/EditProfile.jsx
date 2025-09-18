@@ -6,14 +6,15 @@ import { useDispatch } from "react-redux";
 import { addUser } from "../utils/userSlice";
 
 const EditProfile = ({ user }) => {
-  const [firstName, setFirstName] = useState(user.firstName);
-  const [lastName, setLastName] = useState(user.lastName);
-  const [photoUrl, setPhotoUrl] = useState(user.photoUrl);
-  const [age, setAge] = useState(user.age);
-  const [gender, setGender] = useState(user.gender);
-  const [about, setAbout] = useState(user.about);
+  const [firstName, setFirstName] = useState(user.firstName || " ");
+  const [lastName, setLastName] = useState(user.lastName || " ");
+  const [photoUrl, setPhotoUrl] = useState(user.photoUrl || " ");
+  const [age, setAge] = useState(user.age || " ");
+  const [gender, setGender] = useState(user.gender || " ");
+  const [about, setAbout] = useState(user.about || " ");
   const [error, setError] = useState();
   const [toast, setToast] = useState(false);
+  const [toastMessage, setToastMessage] = useState("");
   const dispatch = useDispatch();
 
   const saveProfile = async () => {
@@ -33,6 +34,7 @@ const EditProfile = ({ user }) => {
 
       dispatch(addUser(res?.data?.data));
       setToast(true);
+      setToastMessage("Profile Updated Successfully");
       setTimeout(() => {
         setToast(false);
       }, 3000);
@@ -85,13 +87,17 @@ const EditProfile = ({ user }) => {
             </fieldset>
             <fieldset className="fieldset">
               <h2 className="text-sm font-medium">Gender</h2>
-              <input
-                type="text"
+              <select
                 value={gender}
                 onChange={(e) => setGender(e.target.value)}
-                className="input"
-              />
+                className="select select-bordered">
+                <option value="">Select Gender</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Other">Other</option>
+              </select>
             </fieldset>
+
             <fieldset className="fieldset">
               <h2 className="text-sm font-medium">About</h2>
               <input
@@ -115,7 +121,7 @@ const EditProfile = ({ user }) => {
       {toast && (
         <div className="toast toast-top toast-center">
           <div className="alert alert-success">
-            <span>Message sent successfully.</span>
+            <span>{toastMessage}</span>
           </div>
         </div>
       )}
