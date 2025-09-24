@@ -3,6 +3,7 @@ import React, { useEffect } from "react";
 import { BASE_URL } from "../utils/constant";
 import { useDispatch, useSelector } from "react-redux";
 import { addConnection } from "../utils/connectionSlice";
+import { Link } from "react-router-dom";
 
 const Connections = () => {
   const dispatch = useDispatch();
@@ -32,30 +33,35 @@ const Connections = () => {
 
       <div className="w-full max-w-2xl space-y-4">
         {connections.map((connection, idx) => {
-          const { firstName, lastName, photoUrl, age, gender, about } =
+          const { firstName, lastName, photoUrl, age, gender, about, _id } =
             connection;
 
           return (
             <div
               key={idx}
-              className="flex items-start bg-white shadow rounded-lg p-4 gap-4">
-              {/* Left side: Image */}
-              <img
-                src={photoUrl}
-                alt={`${firstName} ${lastName}`}
-                className="w-20 h-20 rounded-full object-cover border"
-              />
+              className="flex items-start justify-between bg-white shadow rounded-lg p-4 gap-4">
+              {/* Left side: Image + Info */}
+              <div className="flex gap-4">
+                <img
+                  src={photoUrl}
+                  alt={`${firstName} ${lastName}`}
+                  className="w-20 h-20 rounded-full object-cover border"
+                />
 
-              {/* Right side: Info */}
-              <div className="flex flex-col">
-                <h2 className="text-lg font-semibold">
-                  {firstName} {lastName}
-                </h2>
-                <p className="text-sm text-gray-600">
-                  {age} years old • {gender}
-                </p>
-                <p className="mt-2 text-gray-700">{about}</p>
+                <div className="flex flex-col">
+                  <h2 className="text-lg font-semibold">
+                    {firstName} {lastName}
+                  </h2>
+                  <p className="text-sm text-gray-600">
+                    {age} years old • {gender}
+                  </p>
+                  <p className="mt-2 text-gray-700">{about}</p>
+                </div>
               </div>
+
+              <Link to={"/chat/" + _id}>
+                <button className="btn btn-info">Chat</button>
+              </Link>
             </div>
           );
         })}

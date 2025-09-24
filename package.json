@@ -12,12 +12,15 @@
   "dependencies": {
     "@reduxjs/toolkit": "^2.9.0",
     "@tailwindcss/vite": "^4.1.13",
+    "autoprefixer": "^10.4.21",
     "axios": "^1.12.2",
-    "daisyui": "^5.1.10",
+    "daisyui": "^5.1.17",
+    "postcss": "^8.5.6",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
     "react-redux": "^9.2.0",
     "react-router-dom": "^7.9.1",
+    "socket.io-client": "^4.8.1",
     "tailwindcss": "^4.1.13"
   },
   "devDependencies": {
