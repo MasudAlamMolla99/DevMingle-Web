@@ -39,7 +39,7 @@ const EditProfile = ({ user }) => {
         setToast(false);
       }, 3000);
     } catch (err) {
-      setError(err.message);
+      setError(err.response.data.error);
     }
   };
   return (
@@ -107,7 +107,7 @@ const EditProfile = ({ user }) => {
                 className="input"
               />
             </fieldset>
-            {error && <p className="text-red-500">{error}</p>}
+            {error && <p className="text-red-500 mx-2">{error}</p>}
 
             <div className="card-actions justify-center">
               <button className="btn btn-primary" onClick={saveProfile}>

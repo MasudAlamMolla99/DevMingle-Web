@@ -45,6 +45,30 @@ const Login = () => {
     }
   };
   const handleSignup = async () => {
+    if (!firstName.trim() || !lastName.trim()) {
+      setError("First name and Last name are required");
+      return;
+    }
+
+    if (!emailId.trim()) {
+      setError("Email is required");
+      return;
+    } else if (!/\S+@\S+\.\S+/.test(emailId)) {
+      setError("Email is invalid");
+      return;
+    }
+
+    if (!password) {
+      setError("Password is required");
+      return;
+    } else if (password.length < 6) {
+      setError("Password must be at least 6 characters");
+      return;
+    }
+
+    // Clear previous error if validation passes
+    setError("");
+
     try {
       const res = await axios.post(
         BASE_URL + "/signup",

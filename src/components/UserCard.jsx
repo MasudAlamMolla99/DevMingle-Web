@@ -20,22 +20,21 @@ const UserCard = ({ user }) => {
   };
   return (
     <div>
-      <div className="card bg-base-300 w-80 shadow-sm">
-        <figure className="px-10 pt-10">
-          <img src={photoUrl} alt="Shoes" className="rounded-xl" />
+      <div className="card bg-base-300 w-80 border border-black hover:shadow-bottomRight transition-all duration-300">
+        <figure className="w-fit  h-96">
+          <img src={photoUrl} alt="Shoes" className="" />
         </figure>
         <div className="card-body items-center text-center">
-          <h2 className="card-title">{firstName + " " + lastName}</h2>
-          <h2 className="card-title">
-            {age},{gender}
-          </h2>
+          <h2 className="card-title text-4xl">{firstName + " " + lastName}</h2>
+          <h2 className="card-title text-xl">{age + ", " + gender}</h2>
           <p>{about}</p>
           <div className="card-actions">
             <button
-              className="btn btn- bg-accent"
+              className="btn bg-accent hover:shadow-[4px_4px_6px_rgba(0,0,0,0.4)] transition-all duration-300"
               onClick={() => handleSendRequest("interested", _id)}>
               Interested
             </button>
+
             <button
               className="btn btn-secondary"
               onClick={() => handleSendRequest("ignored", _id)}>
