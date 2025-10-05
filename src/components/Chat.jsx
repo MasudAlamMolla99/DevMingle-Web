@@ -12,23 +12,22 @@ export default function Chat() {
   const [socket, setSocket] = useState(null);
   const user = useSelector((store) => store.user);
   const userId = user?._id;
-  const photoUrl = user?.photoUrl;
 
   const fetchMessages = async () => {
     const chat = await axios.get(BASE_URL + "/chat/" + targetUserId, {
       withCredentials: true,
     });
-    console.log(chat.data.messages);
 
     const chatMesssages = chat?.data?.messages.map((msg) => {
       return {
         firstName: msg.senderId.firstName,
         photoUrl: msg.senderId.photoUrl,
+        createdAt: msg.createdAt,
 
         text: msg.text,
       };
     });
-    // console.log(chatMesssages);
+
     setMessages(chatMesssages);
   };
 
@@ -63,7 +62,7 @@ export default function Chat() {
   const sendMessage = () => {
     socket.emit("sendMessage", {
       firstName: user.firstName,
-      photoUrl,
+      photoUrl: user.photoUrl,
       userId,
       targetUserId,
       text: newMessage,
@@ -86,16 +85,14 @@ export default function Chat() {
             }>
             <div className="chat-image avatar">
               <div className="w-10 rounded-full">
-                <img alt={msg.firstName} src={msg.photoUrl} />
+                <img alt={msg.firstName} src={msg?.photoUrl} />
               </div>
             </div>
             <div className="chat-header">
               {msg.firstName || "User"}
-              <time className="text-xs opacity-50 ml-2">
-                {msg.createdAt
-                  ? new Date(msg.createdAt).toLocaleTimeString()
-                  : ""}
-              </time>
+              {/* <time className="text-xs opacity-50 ml-2">
+                {formatTimestamp(msg.createdAt)}
+              </time> */}
             </div>
             <div className="chat-bubble">{msg.text}</div>
             <div className="chat-footer opacity-50">Seen</div>
