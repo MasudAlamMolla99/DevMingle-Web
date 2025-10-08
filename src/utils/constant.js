@@ -1,1 +1,1 @@
-export const BASE_URL = "https://devmingle-backend-service.onrender.com";
+export const BASE_URL = import.meta.env.VITE_API_BASE_URL;
