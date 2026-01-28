@@ -1,12 +1,74 @@
-# React + Vite
+# DevMingle 💻🔥  
+*A Tinder-like platform built exclusively for developers to connect, collaborate, and grow together.*
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 🚀 Overview
+**DevMingle** is a modern web application designed to help developers discover and connect with like-minded professionals. Inspired by swipe-based platforms, DevMingle simplifies professional networking by making it intuitive, fast, and engaging.
 
-Currently, two official plugins are available:
+Users can browse developer profiles, swipe to show interest, and build meaningful collaborations within the developer community.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## 🌐 Live Demo
+🔗 **Website:** https://dev-mingle-web.vercel.app/
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## 🛠️ Tech Stack
+
+### Frontend
+- **React.js**
+- **Tailwind CSS**
+- **daisyUI**
+
+### Backend
+- **Express.js**
+- **MongoDB**
+
+### Deployment
+- **Frontend:** Vercel  
+- **Backend:** Render  
+
+---
+
+## ✨ Features
+- 🔄 **Swipe Functionality** to browse developer profiles
+- 👨‍💻 **Developer-Centric Profiles** for collaboration-focused networking
+- 🔗 **Connection Management** between matched developers
+- ⚙️ **RESTful APIs** for user profiles and connections
+- ☁️ **Deployed & Scalable Architecture** for smooth performance
+
+---
+
+## 🧩 Project Structure
+
+### Frontend Repository
+🔗 https://github.com/MasudAlamMolla99/DevMingle-Web
+
+- Built with React.js for a smooth user experience
+- Tailwind CSS + daisyUI for responsive and clean UI
+- Integrated with backend APIs for real-time data handling
+
+### Backend Repository
+🔗 https://github.com/MasudAlamMolla99/DevMingle
+
+- Express.js server handling application logic
+- MongoDB for storing user profiles and connection data
+- RESTful APIs for scalable communication with frontend
+
+---
+
+## 📦 Installation & Setup
+
+###  Clone Repositories
+```bash
+# Frontend
+git clone https://github.com/MasudAlamMolla99/DevMingle-Web.git
+
+# Backend
+git clone https://github.com/MasudAlamMolla99/DevMingle.git
+cd DevMingle-Web
+npm install
+npm run dev
+cd DevMingle
+npm install
+npm start
