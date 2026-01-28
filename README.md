@@ -31,7 +31,6 @@ Users can browse developer profiles, swipe to show interest, and build meaningfu
 ---
 
 ## ✨ Features
-- 🔄 **Swipe Functionality** to browse developer profiles
 - 👨‍💻 **Developer-Centric Profiles** for collaboration-focused networking
 - 🔗 **Connection Management** between matched developers
 - ⚙️ **RESTful APIs** for user profiles and connections
